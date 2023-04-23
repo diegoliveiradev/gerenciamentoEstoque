@@ -1,0 +1,18 @@
+SELECT 
+A.nome, 
+A.preco_unitario,
+A.quantidade_estoque,
+A.quantidade_minima,
+A.quantidade_maxima,
+A.quantidade_venda,
+A.descricao, 
+B.nome AS medida,
+C.nome AS categoria,
+D.nome AS fornecedor,
+D.endereco AS enderecoFornecedor,
+A.data_validade
+
+FROM produtos AS A 
+INNER JOIN unidades_medida AS B ON A.unidade_medida_id = B.id
+INNER JOIN categorias      AS C ON A.categoria_id = C.id
+INNER JOIN fornecedores    AS D ON A.fornecedor_id = D.id;
